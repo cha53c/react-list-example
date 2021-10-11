@@ -21,9 +21,6 @@ function App() {
                 <img src={logo} className="App-logo" alt="logo"/>
                 <EmployeeForm addEmployee={addEmployee}/>
                 <EmployeeTable employees={employees} deleteEmployee={deleteEmployee}/>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
             </header>
         </div>
     );

@@ -10,24 +10,24 @@ function App() {
         setEmployees([...employees, {id: employees.length, name: employee.name, role: employee.role}]);
         console.log(employees);
     }
-    const deleteEmployee = (employee) => {
-        console.log('deleting ', employee);
-        setEmployees(employees.filter(item => item.id !== employee.id));
+    const deleteEmployee = (indexToRemove) => {
+        console.log('deleting index', indexToRemove);;
+        setEmployees(employees.filter((item, index) => index !== indexToRemove));
     }
     const EmployeeList = ({employees, deleteEmployee}) => {
-        const EmployeeItem = ({info}) => {
+        const EmployeeItem = ({employee, index}) => {
             return (<div>
-                <span>Name {info.name}</span>
-                <span>Role {info.role}</span>
-                <span><button className="delete" onClick={() => deleteEmployee(info)}>
+                <span>Name {employee.name}</span>
+                <span>Role {employee.role}</span>
+                <span><button className="delete" onClick={() => deleteEmployee(index)}>
                 Delete
         </button></span>
             </div>)
         }
-        const renderedEmployees = employees.map(employee => {
+        const renderedEmployees = employees.map((employee, index) => {
             return (
-                <li key={employee.id}>
-                    <EmployeeItem info={employee}/>
+                <li key={index}>
+                    <EmployeeItem employee={employee} index={index}/>
                 </li>
             )
         })

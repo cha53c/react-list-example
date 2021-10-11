@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from "react";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 // import {EmployeeList} from "./EmployeeList";
 // import {EnterEmployee} from "./EnterEmployee";
 
@@ -19,9 +21,8 @@ function App() {
             return (<div>
                 <span>Name {employee.name}</span>
                 <span>Role {employee.role}</span>
-                <span><button className="delete" onClick={() => deleteEmployee(index)}>
-                Delete
-        </button></span>
+                {/*<span><button className="delete" onClick={() => deleteEmployee(index)}>Delete</button></span>*/}
+                <span><Button className="delete" onClick={() => deleteEmployee(index)}>Delete</Button></span>
             </div>)
         }
         const renderedEmployees = employees.map((employee, index) => {

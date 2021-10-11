@@ -3,6 +3,8 @@ import './App.css';
 import React, {useState} from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
+
 // import {EmployeeList} from "./EmployeeList";
 // import {EnterEmployee} from "./EnterEmployee";
 
@@ -59,19 +61,17 @@ function App() {
             setRole(event.target.value)
         }
 
-        return (
-            <form onSubmit={submitHandler}>
-                <label>
-                    Name:
-                    <input type="text" value={name} onChange={changeNameHandler}/>
-                </label>
-                <label>
-                    Role:
-                    <input type="text" value={role} onChange={changeRoleHandler}/>
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
-        );
+        return (<Form onSubmit={submitHandler}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" placeholder="employee name" onChange={changeNameHandler} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Role</Form.Label>
+                <Form.Control type="text" placeholder="employee's role" onChange={changeRoleHandler} />
+            </Form.Group>
+            <Button variant="primary" type="submit">Add</Button>
+        </Form>);
     }
     return (
         <div className="App">
